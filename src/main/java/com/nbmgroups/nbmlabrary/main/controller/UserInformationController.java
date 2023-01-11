@@ -19,12 +19,18 @@ public class UserInformationController {
 	public String signupController(@RequestBody UserSignUpInformation userSignUpInformation) {
 		
 		boolean usercheck =userInformationServiceInterface.userCheck(userSignUpInformation);
-		if(usercheck==true)
-			return "Already Have Account";
+		if(usercheck==true) {
+			String p="{\"Output\":";
+		String q="\"Already have account\"}";
+			return p+q;
+		}
 		else {
 		boolean result = userInformationServiceInterface.signup(userSignUpInformation);
-		if(result==true)
-			return "Sign Up Succesfull";
+		if(result==true) {
+			String p="{\"Output\":";
+			String d="\"Sign Up Succesfull\"}";
+			return p+d;
+		}
 		else
 			return "Something went Wrong Try Again";
 		}
