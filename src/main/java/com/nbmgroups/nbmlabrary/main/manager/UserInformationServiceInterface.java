@@ -13,5 +13,7 @@ public interface UserInformationServiceInterface {
 	UserSignUpInformation loginEmailIdPass(UserSignUpInformation userSignUpInformation);
 
 	UserSignUpInformation DeleteUserInformation(Integer userId, UserSignUpInformation userSignUpInformationCheck);
+
+	UserSignUpInformation updatetheUserService(UserSignUpInformation userSignUpInformation);
 	
 }

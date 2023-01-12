@@ -37,14 +37,22 @@ public class UserInformationController {
 	}
 	
 	@PostMapping(value = "/findingtheuser")
-	public UserSignUpInformation LoginController(@RequestBody UserSignUpInformation userSignUpInformation) {
+	public UserSignUpInformation loginController(@RequestBody UserSignUpInformation userSignUpInformation) {
 		
 		return userInformationServiceInterface.loginEmailIdPass(userSignUpInformation);
 		
 	}
 	
+	@PostMapping(value = "/updatetheuser")
+	public UserSignUpInformation updatetheUser(@RequestBody UserSignUpInformation userSignUpInformation) {
+		
+		UserSignUpInformation outputUserSignUpInformation=userInformationServiceInterface.updatetheUserService(userSignUpInformation);
+		return outputUserSignUpInformation;
+		
+	}
+	
 	@PostMapping(value = "/deleteuser")
-	public UserSignUpInformation DeleteUserController(@RequestBody UserSignUpInformation userSignUpInformation) {
+	public UserSignUpInformation deleteUserController(@RequestBody UserSignUpInformation userSignUpInformation) {
 		
 		UserSignUpInformation userSignUpInformationCheck=userInformationServiceInterface.loginEmailIdPass(userSignUpInformation);
 		
@@ -52,5 +60,13 @@ public class UserInformationController {
 			return userInformationServiceInterface.DeleteUserInformation(userSignUpInformationCheck.getUserId(),userSignUpInformationCheck);
 	
 	}
+	
+//	@PostMapping(value = "/addhobbies")
+//	public UserSignUpInformation addYourHobbies(@RequestBody UserSignUpInformation userSignUpInformation) {
+//		
+//		UserSignUpInformation outputUserSignUpInformation=userInformationServiceInterface.updatetheUserService(userSignUpInformation);
+//		return outputUserSignUpInformation;
+//		
+//	}
 
 }

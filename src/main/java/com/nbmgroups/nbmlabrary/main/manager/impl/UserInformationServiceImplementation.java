@@ -68,5 +68,40 @@ public class UserInformationServiceImplementation implements UserInformationServ
 		}
 	}
 
+	@Override
+	public UserSignUpInformation updatetheUserService(UserSignUpInformation userSignUpInformation) {
+		
+		UserSignUpInformation emptyUserSignUpInformation = new UserSignUpInformation();
+	
+		UserSignUpInformation userSignUpInformationoutput =userInformationJPARepo.findByUserID(
+				userSignUpInformation.getUserId());
+	
+		
+		if(userSignUpInformationoutput==null) {
+			return emptyUserSignUpInformation;
+		}
+		else {
+	
+              userInformationJPARepo.updateuserinformationsignup(userSignUpInformation.getUserId() ,
+					userSignUpInformation.getDateOfBirth(),userSignUpInformation.getDistrict(),
+					userSignUpInformation.getEmailId(),userSignUpInformation.getFirstName(),userSignUpInformation.getGender(),
+					userSignUpInformation.getLastName(),userSignUpInformation.getMobileNumber(),
+					userSignUpInformation.getNationality(),userSignUpInformation.getPassword(),userSignUpInformation.getState(),
+					userSignUpInformation.getTaluka(),userSignUpInformation.getAddress(),
+					userSignUpInformation.getPinCode(),userSignUpInformation.getBloodGrp(),
+					userSignUpInformation.getReligion()
+					);
+              
+
+              return userSignUpInformationoutput;
+			}
+			
+			
+		
+		
+		
+		
+	}
+
 	
 }

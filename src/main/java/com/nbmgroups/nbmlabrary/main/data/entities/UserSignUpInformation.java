@@ -25,6 +25,22 @@ public class UserSignUpInformation {
 	private String Taluka;
 	private String Gender;
 	private String Password;
+	private String Address;
+	private String PinCode;
+	private String Religion;
+	private String BloodGrp;
+	public String getReligion() {
+		return Religion;
+	}
+	public void setReligion(String religion) {
+		Religion = religion;
+	}
+	public String getBloodGrp() {
+		return BloodGrp;
+	}
+	public void setBloodGrp(String bloodGrp) {
+		BloodGrp = bloodGrp;
+	}
 	private String DateOfBirth;
 	public Integer getUserId() {
 		return UserId;
@@ -104,10 +120,14 @@ public class UserSignUpInformation {
 	}
 	public UserSignUpInformation(String firstName, String lastName, String mobileNumber, String emailId,
 			String state, String district, String nationality, String taluka, String gender, String password,
-			String dateOfBirth) {
+			String dateOfBirth,String address,String pincode,String religion,String bloodgrp) {
 		super();
 //		this.UserId = userId;
 		this.FirstName = firstName;
+		this.Address = address;
+		this.Religion = religion;
+		this.BloodGrp = bloodgrp;
+		this.PinCode = pincode;
 		this.LastName = lastName;
 		this.MobileNumber = mobileNumber;
 		this.EmailId = emailId;
@@ -118,6 +138,18 @@ public class UserSignUpInformation {
 		this.Gender = gender;
 		this.Password = password;
 		this.DateOfBirth = dateOfBirth;
+	}
+	public String getAddress() {
+		return Address;
+	}
+	public void setAddress(String address) {
+		Address = address;
+	}
+	public String getPinCode() {
+		return PinCode;
+	}
+	public void setPinCode(String pinCode) {
+		PinCode = pinCode;
 	}
 	
 
