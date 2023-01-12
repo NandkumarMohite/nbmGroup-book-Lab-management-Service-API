@@ -1,9 +1,13 @@
 package com.nbmgroups.nbmlabrary.main.manager.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.nbmgroups.nbmlabrary.main.data.entities.UserHobies;
 import com.nbmgroups.nbmlabrary.main.data.entities.UserSignUpInformation;
+import com.nbmgroups.nbmlabrary.main.data.repositories.UserHobiesJPARepo;
 import com.nbmgroups.nbmlabrary.main.data.repositories.UserInformationJPARepo;
 import com.nbmgroups.nbmlabrary.main.manager.UserInformationServiceInterface;
 
@@ -12,6 +16,9 @@ public class UserInformationServiceImplementation implements UserInformationServ
 
 	@Autowired
 	public UserInformationJPARepo userInformationJPARepo;
+	
+	@Autowired
+	public UserHobiesJPARepo userHobiesJPARepo;
 	
 	@Override
 	public boolean signup(UserSignUpInformation userSignUpInformation) {
@@ -101,6 +108,22 @@ public class UserInformationServiceImplementation implements UserInformationServ
 		
 		
 		
+	}
+
+	@Override
+	public boolean addUserHobies(UserHobies userHobies) {
+		if(userHobies==null) {
+			return false;
+		}
+		else {			
+			userHobiesJPARepo.save(userHobies);
+		return true;
+		}
+	}
+
+	@Override
+	public Optional<UserHobies> findHobies(UserHobies userHobies) {
+		return userHobiesJPARepo.findById(userHobies.getUserId());
 	}
 
 	

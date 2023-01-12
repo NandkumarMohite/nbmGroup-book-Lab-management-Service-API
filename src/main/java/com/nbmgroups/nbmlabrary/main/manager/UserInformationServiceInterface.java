@@ -1,5 +1,8 @@
 package com.nbmgroups.nbmlabrary.main.manager;
 
+import java.util.Optional;
+
+import com.nbmgroups.nbmlabrary.main.data.entities.UserHobies;
 import com.nbmgroups.nbmlabrary.main.data.entities.UserSignUpInformation;
 
 public interface UserInformationServiceInterface {
@@ -15,5 +18,9 @@ public interface UserInformationServiceInterface {
 	UserSignUpInformation DeleteUserInformation(Integer userId, UserSignUpInformation userSignUpInformationCheck);
 
 	UserSignUpInformation updatetheUserService(UserSignUpInformation userSignUpInformation);
+	
+	boolean addUserHobies(UserHobies userHobies);
+
+	Optional<UserHobies> findHobies(UserHobies userHobies);
 	
 }
